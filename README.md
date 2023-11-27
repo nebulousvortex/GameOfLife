@@ -6,3 +6,5 @@ First Java-School homework.
 Клонировать проект можно по ссылке
 
 https://github.com/nebulousvortex/GameOfLife.git
+
+Манифест находится в src/main/resources
