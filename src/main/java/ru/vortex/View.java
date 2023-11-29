@@ -23,7 +23,7 @@ class MainWindow extends JFrame{
     private Cell[][] cells;
     MainWindow(Cell[][] cells) {
         super("GameOfLife on screen");
-        setSize(110,150);
+        setSize(220,160);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
         this.cells = cells;
@@ -47,7 +47,7 @@ class MainWindow extends JFrame{
                 int x = cell.getX();
                 int y = cell.getY();
                 g.setColor(cell.getColor());
-                g.fillOval((x+3)*10, (y+5)*10, 10, 10);
+                g.fillOval((x+1)*20, (y+2)*20, 20, 20);
             }
         }
     }

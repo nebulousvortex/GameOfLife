@@ -1,5 +1,7 @@
 package main.java.ru.vortex;
 
+import java.util.Scanner;
+
 import static java.lang.Thread.sleep;
 
 
@@ -24,9 +26,10 @@ public class Model {
         View view = new View(cells);
 
         while (true) {
-            sleep(1000);
+            sleep(500);
             makeNextGen(cells);
-            printGen(cells);
+            //printGen(cells);
+            nullify(cells);
             view.setCells(cells);
             view.paintCells();
         }
@@ -37,7 +40,7 @@ public class Model {
      */
     public Cell[][] makeFirstGen(){
 //        // На случай доработки в виде ввода в консоль
-//        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 //        Cell[][] cells = new Cell[size+3][size];
 //        for (int i = 0; i < size+3; i++) {
 //            for (int j = 0; j < size; j++) {
@@ -54,8 +57,9 @@ public class Model {
                 {new Cell(4, 0, false),new Cell(4, 1, false),new Cell(4, 2, false),new Cell(4, 3, false),new Cell(4, 4, false)},
                 {new Cell(5, 0, false),new Cell(5, 1, false),new Cell(5, 2, false),new Cell(5, 3, false),new Cell(5, 4, false)},
                 {new Cell(6, 0, false),new Cell(6, 1, false),new Cell(6, 2, false),new Cell(6, 3, false),new Cell(6, 4, false)},
-                {new Cell(7, 0, false),new Cell(7, 1, false),new Cell(7, 2, false),new Cell(7, 3, false),new Cell(7, 4, false)},
-                {new Cell(8, 0, false),new Cell(8, 1, false),new Cell(8, 2, false),new Cell(8, 3, false),new Cell(8, 4, false)}
+                {new Cell(7, 0, false),new Cell(7, 1, true),new Cell(7, 2, true),new Cell(7, 3, true),new Cell(7, 4, false)},
+                {new Cell(8, 0, false),new Cell(8, 1, false),new Cell(8, 2, false),new Cell(8, 3, false),new Cell(8, 4, false)},
+                //{new Cell(9, 0, false),new Cell(9, 1, false),new Cell(9, 2, false),new Cell(9, 3, false),new Cell(9, 4, false)}
         };
     }
 
@@ -87,5 +91,13 @@ public class Model {
             System.out.println();
         }
         System.out.println();
+    }
+
+    public void nullify(Cell[][] cells){
+        for(Cell[] cellRow: cells){
+            for(Cell cell: cellRow){
+                cell.nullifyNeighbours();
+            }
+        }
     }
 }
