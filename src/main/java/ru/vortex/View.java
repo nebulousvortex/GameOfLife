@@ -4,7 +4,6 @@ import java.awt.*;
 import javax.swing.*;
 
 public class View {
-    private Cell[][] cells;
     private final MainWindow window;
     View(Cell[][] cells){
         this.window = new MainWindow(cells);

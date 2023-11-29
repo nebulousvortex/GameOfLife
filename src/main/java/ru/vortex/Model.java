@@ -6,7 +6,8 @@ import static java.lang.Thread.sleep;
 
 
 public class Model {
-    static final int size = 5;
+
+    boolean start = true;
 
     /*
     * Start creating cells
@@ -25,7 +26,7 @@ public class Model {
         printGen(cells);
         View view = new View(cells);
 
-        while (true) {
+        while (start) {
             sleep(500);
             makeNextGen(cells);
             //printGen(cells);
@@ -39,16 +40,6 @@ public class Model {
      * Generate first generation of cells
      */
     public Cell[][] makeFirstGen(){
-//        // На случай доработки в виде ввода в консоль
-        Scanner scanner = new Scanner(System.in);
-//        Cell[][] cells = new Cell[size+3][size];
-//        for (int i = 0; i < size+3; i++) {
-//            for (int j = 0; j < size; j++) {
-//                boolean alive = scanner.nextBoolean();
-//                cells[i][j] = new Cell(i, j, alive);
-//            }
-//
-//        }
         return new Cell[][]{
                 {new Cell(0, 0, true),new Cell(0, 1, true),new Cell(0, 2, false),new Cell(0, 3, true),new Cell(0, 4, true)},
                 {new Cell(1, 0, true),new Cell(1, 1, false),new Cell(1, 2, true),new Cell(1, 3, false),new Cell(1, 4, true)},
